@@ -1,45 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Reveal animations on scroll
-    const observerOptions = {
-        threshold: 0.1
-    };
 
+    // ── Reveal on Scroll ──
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.reveal').forEach(el => {
-        revealObserver.observe(el);
-    });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // Sticky header logic
+    // ── Sticky Header ──
     const header = document.querySelector('header');
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+        header.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    // Smooth Scroll for header links
+    // ── Smooth Scroll ──
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+        anchor.addEventListener('click', function(e) {
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
-    // Full Screen Menu Logic
-    const burger = document.querySelector('.burger-menu');
-    const overlay = document.querySelector('.menu-overlay');
-    const closeBtn = document.querySelector('.menu-close');
+    // ── Full Screen Menu ──
+    const burger = document.getElementById('burger');
+    const overlay = document.getElementById('menuOverlay');
+    const closeBtn = document.getElementById('menuClose');
     const menuLinks = document.querySelectorAll('.menu-items a');
 
     burger.addEventListener('click', () => {
@@ -53,70 +45,42 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     closeBtn.addEventListener('click', closeMenu);
+    menuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-    menuLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Simplified Formula Counters
-    const counters = document.querySelectorAll('.formula-number');
+    // ── Animated Counters ──
+    const counters = document.querySelectorAll('.stat-number');
     
     counters.forEach(counter => {
         const targetAttr = counter.getAttribute('data-target');
         if (!targetAttr) return;
-
+        
         const target = parseFloat(targetAttr);
         const unit = counter.getAttribute('data-unit') || '';
-        
-        const updateCount = () => {
-            const currentText = counter.innerText.replace(unit, '').replace('%', '').replace('H', '');
-            const count = parseFloat(currentText) || 0;
-            const inc = target / 40;
+        const duration = 1200;
+        let startTime = null;
+
+        const animate = (timestamp) => {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            const current = Math.round(eased * target);
+            counter.innerText = current + unit;
             
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc) + unit;
-                setTimeout(updateCount, 30);
+            if (progress < 1) {
+                requestAnimationFrame(animate);
             } else {
                 counter.innerText = target + unit;
             }
         };
-        
+
         const countObserver = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting) {
-                updateCount();
+                requestAnimationFrame(animate);
                 countObserver.unobserve(entries[0].target);
             }
         }, { threshold: 0.5 });
-        
+
         countObserver.observe(counter);
     });
 
-    // Custom Cursor
-    const cursor = document.querySelector('.custom-cursor');
-    const follower = document.querySelector('.cursor-follower');
-
-    document.addEventListener('mousemove', (e) => {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-        
-        setTimeout(() => {
-            follower.style.left = e.clientX - 10 + 'px';
-            follower.style.top = e.clientY - 10 + 'px';
-        }, 50);
-    });
-
-    // Hover effect for cursor
-    const links = document.querySelectorAll('a, button, .pillar-item');
-    links.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            cursor.style.transform = 'scale(4)';
-            cursor.style.opacity = '0.5';
-        });
-        link.addEventListener('mouseleave', () => {
-            cursor.style.transform = 'scale(1)';
-            cursor.style.opacity = '1';
-        });
-    });
-
-    // End of main logic
 });
