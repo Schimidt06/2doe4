@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // ── Sticky Header ──
-    const header = document.querySelector('header');
+    const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
         header.classList.toggle('scrolled', window.scrollY > 60);
     });
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ── Full Screen Menu ──
+    // ── Fullscreen Menu ──
     const burger = document.getElementById('burger');
     const overlay = document.getElementById('menuOverlay');
     const closeBtn = document.getElementById('menuClose');
@@ -41,46 +41,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const closeMenu = () => {
         overlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        document.body.style.overflow = '';
     };
 
     closeBtn.addEventListener('click', closeMenu);
     menuLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-    // ── Animated Counters ──
-    const counters = document.querySelectorAll('.stat-number');
-    
+    // ── Animated Counters (eased) ──
+    const counters = document.querySelectorAll('.stat-num');
+
     counters.forEach(counter => {
         const targetAttr = counter.getAttribute('data-target');
         if (!targetAttr) return;
-        
+
         const target = parseFloat(targetAttr);
         const unit = counter.getAttribute('data-unit') || '';
-        const duration = 1200;
-        let startTime = null;
+        const duration = 1500;
+        let started = false;
 
-        const animate = (timestamp) => {
-            if (!startTime) startTime = timestamp;
-            const progress = Math.min((timestamp - startTime) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+        const animate = (timestamp, start) => {
+            const progress = Math.min((timestamp - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
             const current = Math.round(eased * target);
             counter.innerText = current + unit;
-            
+
             if (progress < 1) {
-                requestAnimationFrame(animate);
+                requestAnimationFrame(ts => animate(ts, start));
             } else {
                 counter.innerText = target + unit;
             }
         };
 
         const countObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                requestAnimationFrame(animate);
+            if (entries[0].isIntersecting && !started) {
+                started = true;
+                requestAnimationFrame(ts => animate(ts, ts));
                 countObserver.unobserve(entries[0].target);
             }
         }, { threshold: 0.5 });
 
         countObserver.observe(counter);
+    });
+
+    // ── Staggered reveal for cards ──
+    document.querySelectorAll('.program-card, .game-card, .benefit-card, .contact-card').forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.08}s`;
     });
 
 });

@@ -3,22 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2Doe4 HUB — Hub de Transformação Social através do Esporte, Educação Digital e Voluntariado. Dois amigos, quatro horas, impacto real.">
-    <title>2Doe4 HUB | Transformação Social pelo Voluntariado</title>
+    <meta name="description" content="2Doe4 HUB — Hub de Transformação Social. Dois amigos, quatro horas, impacto real. Esporte, Educação Digital e Renda Solidária.">
+    <title>2Doe4 HUB | Voluntariado é Nossa Corrida</title>
     <link rel="stylesheet" href="index.css">
-    <link rel="icon" type="image/png" href="logo_2doe4.png">
+    <link rel="icon" type="image/png" href="hero_2doe4_cinematic_1775052383369.png">
 </head>
 <body>
 
+    <!-- NEWS TICKER — like LSB -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            <span>Lançamento: Campanha "Chega de Voluntário Reborn" — Abril 2026</span>
+            <span>Projeto Piloto #CuraDoAbem: Alianças pela Saúde — Brotas, Jaú e Região</span>
+            <span>Formação GPTDOABEM: Criadores de Conteúdo Digital Solidário — 100% Mobile</span>
+            <span>Plataforma em construção — Seja um dos primeiros a fazer parte</span>
+            <span>Lançamento: Campanha "Chega de Voluntário Reborn" — Abril 2026</span>
+            <span>Projeto Piloto #CuraDoAbem: Alianças pela Saúde — Brotas, Jaú e Região</span>
+            <span>Formação GPTDOABEM: Criadores de Conteúdo Digital Solidário — 100% Mobile</span>
+            <span>Plataforma em construção — Seja um dos primeiros a fazer parte</span>
+        </div>
+    </div>
+
     <!-- HEADER -->
-    <header>
-        <div class="container nav">
+    <header id="header">
+        <div class="header-inner">
             <a href="#" class="logo">
-                <img src="logo_2doe4.png" alt="2Doe4 HUB">
+                <div class="logo-icon">2D4</div>
+                <span class="logo-text">2Doe4 HUB</span>
             </a>
-            <div style="display: flex; align-items: center; gap: 20px;">
-                <button class="menu-btn" onclick="location.href='#formula'">JOIN THE RACE</button>
-                <div class="burger-menu" id="burger">
+            <div class="nav-right">
+                <a href="#jornada" class="nav-cta">Join the Race</a>
+                <div class="burger" id="burger">
                     <span></span><span></span><span></span>
                 </div>
             </div>
@@ -27,13 +42,15 @@
 
     <!-- FULLSCREEN MENU -->
     <div class="menu-overlay" id="menuOverlay">
-        <span class="menu-close" id="menuClose">&times;</span>
+        <div class="menu-close" id="menuClose">&times;</div>
         <ul class="menu-items">
-            <li><a href="#formula">O Hub</a></li>
+            <li><a href="#hub">O Hub</a></li>
             <li><a href="#pilares">Pilares</a></li>
             <li><a href="#gptdoabem">GPTDOABEM</a></li>
-            <li><a href="#gamificacao">Gamificação</a></li>
             <li><a href="#jornada">Como Funciona</a></li>
+            <li><a href="#gamificacao">Gamificação</a></li>
+            <li><a href="#campanhas">Campanhas</a></li>
+            <li><a href="#beneficios">Benefícios</a></li>
             <li><a href="#manifesto">Manifesto</a></li>
         </ul>
     </div>
@@ -42,266 +59,359 @@
 
         <!-- ═══ HERO ═══ -->
         <section class="hero">
-            <div class="hero-media">
-                <img src="hero_2doe4_cinematic_1775052383369.png" alt="2Doe4 Journey">
+            <div class="hero-bg">
+                <img src="hero_2doe4_cinematic_1775052383369.png" alt="2Doe4 HUB — Voluntariado é Nossa Corrida">
             </div>
             <div class="container hero-content">
                 <h1 class="hero-title reveal">
-                    TRANSFORMANDO O <span class="gold">MUNDO</span>.<br>
-                    UM <span class="gold">VOLUNTÁRIO</span> POR VEZ.
+                    CHANGING THE <span class="gold">WORLD</span>.<br>
+                    ONE <span class="gold">VOLUNTEER</span> AT A TIME.
                 </h1>
-                <p class="hero-desc reveal">
-                    Um hub de transformação social que conecta duplas de amigos para 4 horas mensais de voluntariado — com formação digital e impacto mensurável.
+                <p class="hero-sub reveal">
+                    A primeira plataforma do Brasil que conecta duplas de amigos para 4 horas mensais de voluntariado — com formação digital e impacto mensurável.
                 </p>
-                <a href="#formula" class="btn-gold reveal">
-                    <span>CONHEÇA A FÓRMULA</span>
-                    <span class="arrow">↗</span>
+                <a href="#hub" class="btn-gold reveal">
+                    Conheça a Fórmula <span>↗</span>
                 </a>
+                <div class="hero-scroll reveal">
+                    <span class="line"></span> Rolar para baixo
+                </div>
             </div>
         </section>
 
-        <!-- ═══ FORMULA / O QUE É ═══ -->
-        <section id="formula" class="section-light">
+        <!-- ═══ O QUE É — STATS ═══ -->
+        <section id="hub" class="section-sm section-light">
             <div class="container">
-                <h2 class="section-title reveal">O QUE É O 2DOE4 HUB?</h2>
-                <p class="section-sub reveal">
-                    Um ecossistema híbrido de transformação social que une esporte, educação digital e geração de renda solidária.
-                </p>
-
-                <div class="stats-row reveal">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="2" data-unit="">0</div>
+                <div class="section-header reveal">
+                    <h2>IMPACTO QUE ULTRAPASSA FRONTEIRAS</h2>
+                    <p>Dois amigos. Quatro horas. Infinitas possibilidades de mudar vidas.</p>
+                </div>
+                <div class="stats-banner reveal">
+                    <div class="stat-cell">
+                        <div class="stat-num" data-target="2" data-unit="">0</div>
                         <div class="stat-label">Amigos por Dupla</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="4" data-unit="H">0H</div>
-                        <div class="stat-label">Horas Mensais</div>
+                    <div class="stat-cell">
+                        <div class="stat-num" data-target="4" data-unit="H">0H</div>
+                        <div class="stat-label">Horas por Mês</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="100" data-unit="%">0%</div>
-                        <div class="stat-label">Mobile Training</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="3600" data-unit="">0</div>
+                    <div class="stat-cell">
+                        <div class="stat-num" data-target="3600" data-unit="+">0</div>
                         <div class="stat-label">Atendimentos / Ano</div>
                     </div>
+                    <div class="stat-cell">
+                        <div class="stat-num" data-target="100" data-unit="%">0%</div>
+                        <div class="stat-label">Mobile Training</div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ PILARES ═══ -->
-        <section id="pilares">
-            <div class="container">
-                <h2 class="section-title reveal">PILARES PARA FUTUROS LÍDERES SOCIAIS</h2>
-                <p class="section-sub reveal">
-                    Três trilhas de impacto real, criadas para quem quer transformar comunidades com inovação e afeto.
+        <!-- ═══ FORMULA ═══ -->
+        <section class="section-sm" style="background: var(--gold); text-align: center; padding: 50px 0;">
+            <div class="container reveal">
+                <p style="font-size: clamp(1rem, 2.5vw, 1.3rem); font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.04em;">
+                    2 Amigos + 4h/Mês + Formação Digital = Impacto Mensurável + Transformação Pessoal + Sustentabilidade
                 </p>
+            </div>
+        </section>
 
-                <div class="card-grid">
-                    <div class="card reveal">
-                        <img src="hero_2doe4_clean_cinematic_1775053127699.png" alt="Esporte" class="card-img">
-                        <div class="card-body">
-                            <span class="card-tag">Pilar 01</span>
-                            <h3 class="card-title">ESPORTE</h3>
-                            <p class="card-desc">Eventos e experiências esportivas. Inovação com afeto nas arenas onde a competição encontra a causa social.</p>
+        <!-- ═══ PILARES — Program Cards like LSB ═══ -->
+        <section id="pilares" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>TRÊS PILARES DO HUB</h2>
+                    <p>Trilhas de impacto real para quem quer transformar comunidades com inovação e afeto.</p>
+                </div>
+                <div class="program-cards">
+                    <div class="program-card reveal">
+                        <img src="hero_2doe4_clean_cinematic_1775053127699.png" alt="Esporte" class="program-card-img">
+                        <div class="program-card-body">
+                            <span class="program-card-tag">Pilar 01</span>
+                            <h3 class="program-card-title">ESPORTE</h3>
+                            <p class="program-card-desc">Eventos e experiências esportivas. Voluntariado em duplas, gamificação e reconhecimento nas arenas onde a competição encontra a causa social.</p>
+                            <div class="program-card-meta">
+                                <span>🏃 Corrida, MTB, Crossfit</span>
+                                <span>🏅 Ranking de impacto</span>
+                                <span>👥 Voluntariado em Duplas</span>
+                                <span>📍 Presencial</span>
+                            </div>
+                            <div class="program-card-actions">
+                                <a href="#jornada" class="btn-gold" style="justify-content: center;">Saiba Mais ↗</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card reveal">
-                        <img src="digital_education_gptdoabem_1775052401705.png" alt="Educação Digital" class="card-img">
-                        <div class="card-body">
-                            <span class="card-tag">Pilar 02</span>
-                            <h3 class="card-title">EDUCAÇÃO DIGITAL</h3>
-                            <p class="card-desc">Formação de criadores de conteúdo UGC. 100% pelo celular, presença digital para projetos sociais.</p>
+                    <div class="program-card reveal">
+                        <img src="digital_education_gptdoabem_1775052401705.png" alt="Educação Digital" class="program-card-img">
+                        <div class="program-card-body">
+                            <span class="program-card-tag">Pilar 02</span>
+                            <h3 class="program-card-title">EDUCAÇÃO DIGITAL</h3>
+                            <p class="program-card-desc">Formação de criadores de conteúdo UGC pelo celular. Presença digital profissional para projetos sociais com tecnologia 100% mobile.</p>
+                            <div class="program-card-meta">
+                                <span>📱 100% Mobile</span>
+                                <span>🎓 Certificação UGC</span>
+                                <span>🤖 AI + ChatGPT</span>
+                                <span>📍 Digital</span>
+                            </div>
+                            <div class="program-card-actions">
+                                <a href="#gptdoabem" class="btn-gold" style="justify-content: center;">Saiba Mais ↗</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="card reveal">
-                        <img src="hub_social_impact_atmosphere_1775052420861.png" alt="Renda Solidária" class="card-img">
-                        <div class="card-body">
-                            <span class="card-tag">Pilar 03</span>
-                            <h3 class="card-title">RENDA SOLIDÁRIA</h3>
-                            <p class="card-desc">Campanhas estruturadas que geram recursos e sustentabilidade para projetos sociais reais.</p>
+                    <div class="program-card reveal">
+                        <img src="hub_social_impact_atmosphere_1775052420861.png" alt="Renda Solidária" class="program-card-img">
+                        <div class="program-card-body">
+                            <span class="program-card-tag">Pilar 03</span>
+                            <h3 class="program-card-title">RENDA SOLIDÁRIA</h3>
+                            <p class="program-card-desc">Campanhas estruturadas que geram recursos e sustentabilidade para projetos sociais reais. Transparência e impacto mensuráveis.</p>
+                            <div class="program-card-meta">
+                                <span>💰 Captação de recursos</span>
+                                <span>📊 Dashboard de impacto</span>
+                                <span>🤝 Parcerias ESG</span>
+                                <span>📍 Híbrido</span>
+                            </div>
+                            <div class="program-card-actions">
+                                <a href="#campanhas" class="btn-gold" style="justify-content: center;">Saiba Mais ↗</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ GPTDOABEM ═══ -->
-        <section id="gptdoabem" class="section-light">
+        <!-- ═══ GPTDOABEM — Split Section ═══ -->
+        <section id="gptdoabem" class="section section-light">
             <div class="container">
-                <div class="gpt-grid">
-                    <div class="gpt-image reveal">
-                        <img src="digital_education_gptdoabem_1775052401705.png" alt="GPTDOABEM">
+                <div class="split">
+                    <div class="split-img reveal">
+                        <img src="digital_education_gptdoabem_1775052401705.png" alt="GPTDOABEM — Formação Digital Solidária">
                     </div>
                     <div class="reveal">
-                        <span class="gpt-tag">Powered by AI</span>
-                        <h2 class="gpt-title">GPTDOABEM</h2>
-                        <p class="gpt-desc">
-                            Laboratório Social de IA que transforma voluntários em criadores de conteúdo digital. Formação 100% pelo celular com inteligência artificial como aliada.
+                        <span class="split-tag">Powered by AI</span>
+                        <h2 class="split-title">GPTDOABEM: FORMAÇÃO DE CRIADORES DIGITAIS SOLIDÁRIOS</h2>
+                        <p class="split-desc">
+                            Transformamos iniciantes em criadores de conteúdo UGC para impulsionar projetos sociais — 100% pelo celular, financiado por patrocinadores, com impacto real.
                         </p>
-                        <ul class="check-list">
-                            <li>Formação em criação de conteúdo UGC</li>
-                            <li>100% Mobile — aprenda pelo celular</li>
-                            <li>Presença digital para projetos sociais</li>
-                            <li>Certificação de Creator Solidário</li>
+                        <ul class="check-list" style="margin-bottom: 30px;">
+                            <li>Presença digital, Canal Dark, autoridade digital</li>
+                            <li>Instagram, TikTok, YouTube Shorts — tudo pelo celular</li>
+                            <li>Logo no Canva, cores institucionais, identidade visual</li>
+                            <li>Storytelling, prova social, vídeos emocionais</li>
+                            <li>Funil Solidário: Conteúdo → Link → WhatsApp → Apoio</li>
+                            <li>Calendário editorial, métricas de crescimento</li>
                         </ul>
-                        <a href="#" class="btn-gold">
-                            <span>SAIBA MAIS</span>
-                            <span class="arrow">↗</span>
-                        </a>
+                        <p style="font-size: 0.88rem; color: var(--text-body); font-style: italic; margin-bottom: 24px;">
+                            Ferramentas: Canva | CapCut | ChatGPT | Instagram | TikTok | WhatsApp Business | Google Drive<br>
+                            <strong>"Sem computador. Sua causa no bolso do mundo."</strong>
+                        </p>
+                        <a href="#" class="btn-gold">Saiba Mais ↗</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ COMO FUNCIONA (JORNADA) ═══ -->
-        <section id="jornada" class="section-navy">
+        <!-- ═══ COMO FUNCIONA — Journey Steps ═══ -->
+        <section id="jornada" class="section section-navy">
             <div class="container">
-                <h2 class="section-title reveal">COMO FUNCIONA</h2>
-                <p class="section-sub reveal">
-                    Uma jornada simples para gerar impacto real. Do cadastro à ação em 5 passos.
-                </p>
-                <div class="steps-grid reveal">
-                    <div class="step-item">
-                        <div class="step-number">01</div>
-                        <h4 class="step-title">Cadastro</h4>
-                        <p class="step-desc">Empresas, Universidades e Projetos adotam o movimento.</p>
+                <div class="section-header reveal">
+                    <h2>DESCUBRA A JORNADA 2DOE4</h2>
+                    <p>Do cadastro ao impacto real em 6 passos — projetado para quem quer mudar o mundo em dupla.</p>
+                </div>
+                <div class="journey-steps reveal">
+                    <div class="journey-step">
+                        <div class="journey-step-num">01</div>
+                        <h4>Cadastro</h4>
+                        <p>Empresas, Universidades, Entidades e Projetos Sociais adotam o movimento. Atletas e apaixonados por transformação entram em duplas.</p>
                     </div>
-                    <div class="step-item">
-                        <div class="step-number">02</div>
-                        <h4 class="step-title">Match</h4>
-                        <p class="step-desc">Duplas via algoritmo inteligente ou amigos diretos.</p>
+                    <div class="journey-step">
+                        <div class="journey-step-num">02</div>
+                        <h4>Match Solidário</h4>
+                        <p>Duplas formadas por amigos ou via algoritmo inteligente — conectando quem quer correr pelo outro.</p>
                     </div>
-                    <div class="step-item">
-                        <div class="step-number">03</div>
-                        <h4 class="step-title">Escolha</h4>
-                        <p class="step-desc">Trilha Esportiva, Digital ou Causa da Região.</p>
+                    <div class="journey-step">
+                        <div class="journey-step-num">03</div>
+                        <h4>Escolha da Jornada</h4>
+                        <p>Trilha Esportiva (eventos, treinos), Trilha Digital (GPTDOABEM), ou Trilha Causa (projetos da região).</p>
                     </div>
-                    <div class="step-item">
-                        <div class="step-number">04</div>
-                        <h4 class="step-title">Ação</h4>
-                        <p class="step-desc">4 horas mensais de voluntariado e impacto real.</p>
+                    <div class="journey-step">
+                        <div class="journey-step-num">04</div>
+                        <h4>Ação</h4>
+                        <p>4 horas mensais: corridas, criação de conteúdo para ONGs, apoio a campanhas, mentoria a projetos sociais.</p>
                     </div>
-                    <div class="step-item">
-                        <div class="step-number">05</div>
-                        <h4 class="step-title">Registro</h4>
-                        <p class="step-desc">Validação via app e registro de impacto mensurável.</p>
+                    <div class="journey-step">
+                        <div class="journey-step-num">05</div>
+                        <h4>Registro & Impacto</h4>
+                        <p>Validação via app + registro de impacto em tempo real + geração de portfólio real.</p>
+                    </div>
+                    <div class="journey-step">
+                        <div class="journey-step-num">06</div>
+                        <h4>Compartilhamento</h4>
+                        <p>Desafio viral: "Eu fiz. E você, @amigo?" — crescimento exponencial via desafio social.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ═══ GAMIFICAÇÃO ═══ -->
-        <section id="gamificacao" class="section-navy" style="padding-top: 0;">
+        <section id="gamificacao" class="section section-navy" style="padding-top: 0;">
             <div class="container">
-                <h2 class="section-title reveal">GAMIFICAÇÃO & RECONHECIMENTO</h2>
-                <p class="section-sub reveal">
-                    O sistema Le Mans Social transforma horas de voluntariado em conquistas reais.
-                </p>
-                <div class="levels-grid reveal">
-                    <div class="level-card">
-                        <div class="level-badge">4H Mensais</div>
-                        <h3 class="level-name">Resistência</h3>
-                        <p class="level-desc">Certificado Digital 2Doe4 para a dupla.</p>
+                <div class="section-header reveal">
+                    <h2>GAMIFICAÇÃO & RECONHECIMENTO</h2>
+                    <p>O sistema Le Mans Social transforma horas de voluntariado em conquistas reais.</p>
+                </div>
+                <div class="game-grid reveal">
+                    <div class="game-card">
+                        <div class="game-card-badge">4h/mês</div>
+                        <h3>Resistência</h3>
+                        <p>Certificado digital 2Doe4 para a dupla.</p>
                     </div>
-                    <div class="level-card">
-                        <div class="level-badge">12H Acumuladas</div>
-                        <h3 class="level-name">Endurance</h3>
-                        <p class="level-desc">Selo exclusivo no LinkedIn e Atleta Social.</p>
+                    <div class="game-card">
+                        <div class="game-card-badge">12h acumuladas</div>
+                        <h3>Endurance</h3>
+                        <p>Selo exclusivo no LinkedIn e reconhecimento Atleta Social.</p>
                     </div>
-                    <div class="level-card" style="border-color: var(--gold);">
-                        <div class="level-badge">24H Contínuas</div>
-                        <h3 class="level-name">Le Mans Social</h3>
-                        <p class="level-desc">Troféu físico e experiência disruptiva de imersão social.</p>
+                    <div class="game-card">
+                        <div class="game-card-badge">24h acumuladas</div>
+                        <h3>Maratona</h3>
+                        <p>Evento anual de premiação exclusivo para Atletas Sociais.</p>
                     </div>
-                    <div class="level-card">
-                        <div class="level-badge">Formação GPTDOABEM</div>
-                        <h3 class="level-name">Creator Solidário</h3>
-                        <p class="level-desc">Badge de Criador Digital Certificado.</p>
+                    <div class="game-card featured">
+                        <div class="game-card-badge">24h contínuas</div>
+                        <h3>Le Mans Social</h3>
+                        <p>Experiência exclusiva + troféu físico de imersão social.</p>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-card-badge">Formação GPTDOABEM</div>
+                        <h3>Creator Solidário</h3>
+                        <p>Badge de Criador Digital Certificado.</p>
+                    </div>
+                    <div class="game-card">
+                        <div class="game-card-badge">100h + 3 projetos</div>
+                        <h3>Embaixador</h3>
+                        <p>Status de Embaixador 2Doe4 e voz estratégica do Hub.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ═══ CAMPANHAS ═══ -->
-        <section>
+        <section id="campanhas" class="section">
             <div class="container">
-                <h2 class="section-title reveal">CAMPANHAS DOABEM</h2>
-                <p class="section-sub reveal">
-                    Projetos reais com metas de impacto mensuráveis e transparência total.
-                </p>
+                <div class="section-header reveal">
+                    <h2>CAMPANHAS DOABEM</h2>
+                    <p>Projetos reais com metas de impacto mensuráveis e transparência total.</p>
+                </div>
                 <div class="campaign-grid reveal">
                     <div class="campaign-card">
-                        <h3>#CURADOABEM — Piloto</h3>
-                        <p>Alianças pela Saúde — Brotas, Jaú e Região. Em parceria com Hospital Santa Therezinha.</p>
+                        <h3>🏥 Projeto Piloto #CURADOABEM</h3>
+                        <p>Alianças pela Saúde — Brotas, Jaú e Região. Em parceria com Hospital Santa Therezinha, CRC-Jaú, APM-Jaú e Sindicato do Comércio de Jaú.</p>
+                        <p style="margin-top: 12px;">Ambulatório de curativos especiais: atendimento a pacientes com feridas complexas, reduzindo complicações, internações e amputações evitáveis.</p>
                         <ul>
+                            <li><strong>300</strong> Atendimentos mensais</li>
                             <li><strong>3.600</strong> Atendimentos anuais</li>
                             <li><strong>30%</strong> Redução de reinternações</li>
                             <li><strong>20%</strong> Redução de amputações evitáveis</li>
                         </ul>
                     </div>
                     <div class="campaign-card">
-                        <h3>CHEGA DE VOLUNTÁRIO REBORN</h3>
-                        <p>Lançamento Abril 2026. Ativando o exército do voluntariado digital por recompensas. Renda revertida integralmente ao #CURADOABEM.</p>
+                        <h3>🔥 Fase 1: "Chega de Voluntário Reborn"</h3>
+                        <p>Lançamento: Abril de 2026<br>Plataforma: Instagram @doabem<br>Objetivo: Ativar o exército do voluntariado digital por recompensas.<br>Renda revertida integralmente ao #CuraDoAbem.</p>
+                        <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);">
+                            <h3>❤️ Fase 2: "Santa Casa é uma Mãe que Não Te Abandona"</h3>
+                            <p>Lançamento: Agosto de 2026<br>Objetivo: Fortalecer vínculo comunitário e captar recursos.<br>Renda revertida integralmente ao #CuraDoAbem.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ═══ RANKING ═══ -->
-        <section class="section-light">
+        <!-- ═══ BENEFÍCIOS POR PERFIL ═══ -->
+        <section id="beneficios" class="section section-light">
             <div class="container">
-                <h2 class="section-title reveal">RANKING SOLIDÁRIO</h2>
-                <p class="section-sub reveal">
-                    As duplas com maior impacto acumulado no 2Doe4 HUB.
-                </p>
-                <div class="reveal" style="overflow-x: auto;">
-                    <table class="ranking-table">
-                        <thead>
-                            <tr>
-                                <th>Posição</th>
-                                <th>Dupla Atleta</th>
-                                <th>Total Horas</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="ranking-pos">01</td>
-                                <td>Ana & Mateus</td>
-                                <td>48H</td>
-                                <td>Maratona</td>
-                            </tr>
-                            <tr>
-                                <td class="ranking-pos">02</td>
-                                <td>Roberto & Carla</td>
-                                <td>36H</td>
-                                <td>Endurance</td>
-                            </tr>
-                            <tr>
-                                <td class="ranking-pos">03</td>
-                                <td>Luiz & Julia</td>
-                                <td>28H</td>
-                                <td>Endurance</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="section-header reveal">
+                    <h2>BENEFÍCIOS POR PERFIL</h2>
+                    <p>Cada perfil encontra valor real no ecossistema 2Doe4.</p>
+                </div>
+                <div class="benefits-grid reveal">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">👟</div>
+                        <h4>Para Empresas</h4>
+                        <p>Engajamento de colaboradores em duplas. Dashboard de impacto em tempo real. Conteúdo UGC autêntico. Fortalecimento da marca empregadora.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎓</div>
+                        <h4>Para Universidades</h4>
+                        <p>Horas complementares validadas. Integração calouro-veterano. Extensão com impacto real. Formação em marketing digital social.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏛️</div>
+                        <h4>Para Entidades</h4>
+                        <p>Programa "Profissão Solidária" em duplas. Ações setoriais mensuráveis. Gamificação entre categorias. Reconhecimento público.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🏃</div>
+                        <h4>Para Atletas</h4>
+                        <p>Experiências esportivas com propósito. Formação GPTDOABEM gratuita. Descontos em eventos parceiros. Networking com marcas.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💚</div>
+                        <h4>Para Projetos Sociais</h4>
+                        <p>Presença digital profissional. Fonte de renda via campanhas. Voluntários qualificados em duplas. Captação via funil digital.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- ═══ MANIFESTO ═══ -->
-        <section id="manifesto" class="manifesto-section">
+        <section id="manifesto" class="manifesto">
             <div class="container">
-                <h2 class="section-title reveal">O MANIFESTO</h2>
+                <h2 style="font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 30px;" class="reveal">O Manifesto</h2>
                 <p class="manifesto-quote reveal">
                     "Ninguém muda o mundo sozinho. Mas dois amigos, doando 4 horas, despertam o gigante da solidariedade brasileira."
                 </p>
                 <div class="manifesto-author reveal">— Paul Farmer</div>
-                <div style="margin-top: 50px;" class="reveal">
-                    <a href="#formula" class="btn-gold">
-                        <span>JUNTE-SE AO MOVIMENTO</span>
-                        <span class="arrow">↗</span>
+                <p class="reveal" style="color: var(--text-light); margin-top: 30px; font-size: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    4 horas que mudam vidas. Uma corrida que não termina na linha de chegada — e gera frutos para quem corre junto.
+                </p>
+            </div>
+        </section>
+
+        <!-- ═══ CTA BANNER — like LSB "Para changemakers" ═══ -->
+        <section class="cta-banner">
+            <div class="container">
+                <h2 class="reveal">Para changemakers</h2>
+                <p class="reveal">Junte-se ao 2Doe4 HUB e explore um ecossistema de transformação social, crescimento pessoal e impacto mensurável.</p>
+                <a href="#" class="btn-navy reveal">Cadastre-se Agora ↗</a>
+            </div>
+        </section>
+
+        <!-- ═══ PRONTO PARA COMEÇAR? ═══ -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2>PRONTO PARA COMEÇAR?</h2>
+                    <p>Escolha como você gostaria de se conectar conosco.</p>
+                </div>
+                <div class="contact-grid reveal">
+                    <a href="#" class="contact-card">
+                        <div class="contact-card-icon">📋</div>
+                        <h4>Cadastre-se</h4>
+                        <p>Entre para o movimento</p>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-card-icon">📧</div>
+                        <h4>Envie um e-mail</h4>
+                        <p>Entre em contato</p>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-card-icon">🤝</div>
+                        <h4>Seja Parceiro</h4>
+                        <p>Empresa, Universidade ou Entidade</p>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <div class="contact-card-icon">💬</div>
+                        <h4>WhatsApp</h4>
+                        <p>Converse conosco</p>
                     </a>
                 </div>
             </div>
@@ -312,39 +422,37 @@
     <!-- ═══ FOOTER ═══ -->
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <img src="logo_2doe4.png" alt="2Doe4 HUB" style="height: 30px; filter: brightness(10); margin-bottom: 16px;">
-                    <p style="color: rgba(255,255,255,0.55); font-size: 0.88rem;">Hub de Transformação Social através do Esporte, Educação e Tecnologia.</p>
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="logo" style="margin-bottom: 4px;">
+                        <div class="logo-icon">2D4</div>
+                        <span class="logo-text">2Doe4 HUB</span>
+                    </div>
+                    <p>Hub de Transformação Social através do Esporte, Educação e Tecnologia.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Corporate</h4>
-                    <ul class="footer-links">
-                        <li><a href="#manifesto">Manifesto</a></li>
-                        <li><a href="#pilares">Projetos Sociais</a></li>
-                        <li><a href="#">Parceiros</a></li>
-                    </ul>
+                    <h5>Navegação</h5>
+                    <a href="#hub">Sobre o Hub</a>
+                    <a href="#pilares">Pilares</a>
+                    <a href="#gptdoabem">GPTDOABEM</a>
+                    <a href="#manifesto">Manifesto</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Racing</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Calendário de Eventos</a></li>
-                        <li><a href="#">Ranking Solidário</a></li>
-                        <li><a href="#gamificacao">Le Mans Social</a></li>
-                    </ul>
+                    <h5>Racing</h5>
+                    <a href="#">Calendário de Eventos</a>
+                    <a href="#gamificacao">Ranking Solidário</a>
+                    <a href="#gamificacao">Le Mans Social</a>
                 </div>
                 <div class="footer-col">
-                    <h4>Connect</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">WhatsApp</a></li>
-                    </ul>
+                    <h5>Connect</h5>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">WhatsApp</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>© 2026 2Doe4 HUB. All Rights Reserved.</span>
-                <span>Voluntariado é Nossa Corrida.</span>
+                <span>© 2026 2Doe4 HUB. Todos os direitos reservados.</span>
+                <span class="footer-tagline">Resistência solidária: 2 Doe 4. Voluntariado é nossa corrida.</span>
             </div>
         </div>
     </footer>
