@@ -58,32 +58,38 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', closeMenu);
     });
 
-    // Telemetry Automation
-    const bpmVal = document.getElementById('bpm-val');
-    const velVal = document.getElementById('vel-val');
-    const pwrVal = document.getElementById('pwr-val');
-    const co2Val = document.getElementById('co2-val');
+    // Simplified Formula Counters
+    const counters = document.querySelectorAll('.formula-number');
+    
+    counters.forEach(counter => {
+        const targetAttr = counter.getAttribute('data-target');
+        if (!targetAttr) return;
 
-    setInterval(() => {
-        // Randomly fluctuate BPM
-        const bpm = 70 + Math.floor(Math.random() * 20);
-        bpmVal.innerText = bpm;
-        bpmVal.nextElementSibling.firstChild.style.width = bpm + '%';
-
-        // Randomly fluctuate velocity
-        const vel = 310 + Math.floor(Math.random() * 25);
-        velVal.innerText = vel + ' km/h';
-        velVal.nextElementSibling.firstChild.style.width = (vel - 300) * 4 + '%';
-
-        // Randomly fluctuate Power
-        const pwr = 95 + Math.floor(Math.random() * 5);
-        pwrVal.innerText = pwr + '%';
-        pwrVal.nextElementSibling.firstChild.style.width = pwr + '%';
-
-        // Randomly fluctuate CO2
-        const co2 = (12.4 + Math.random() * 0.5).toFixed(1);
-        co2Val.innerText = co2 + 't';
-    }, 2000);
+        const target = parseFloat(targetAttr);
+        const unit = counter.getAttribute('data-unit') || '';
+        
+        const updateCount = () => {
+            const currentText = counter.innerText.replace(unit, '').replace('%', '').replace('H', '');
+            const count = parseFloat(currentText) || 0;
+            const inc = target / 40;
+            
+            if (count < target) {
+                counter.innerText = Math.ceil(count + inc) + unit;
+                setTimeout(updateCount, 30);
+            } else {
+                counter.innerText = target + unit;
+            }
+        };
+        
+        const countObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                updateCount();
+                countObserver.unobserve(entries[0].target);
+            }
+        }, { threshold: 0.5 });
+        
+        countObserver.observe(counter);
+    });
 
     // Custom Cursor
     const cursor = document.querySelector('.custom-cursor');
@@ -112,31 +118,5 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Simulated Formula Counters
-    const counters = document.querySelectorAll('.formula-number');
-    const startTime = 2; // Initial delay
-    
-    counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const updateCount = () => {
-            const count = +counter.innerText.replace('+', '').replace('H', '');
-            const speed = target / 50;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + speed) + (counter.getAttribute('data-unit') || '');
-                setTimeout(updateCount, 40);
-            } else {
-                counter.innerText = target + (counter.getAttribute('data-unit') || '');
-            }
-        };
-        
-        // Only start count when visible
-        const countObserver = new IntersectionObserver((entries) => {
-            if (entries[0].isIntersecting) {
-                updateCount();
-                countObserver.unobserve(entries[0].target);
-            }
-        }, { threshold: 1 });
-        
-        countObserver.observe(counter);
-    });
+    // End of main logic
 });

@@ -2,16 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
 
 :root {
-  --primary: #EF2B2D; /* Ferrari Red */
-  --bg-dark: #0B0B0B;
-  --bg-card: #141414;
+  --primary: #EF2B2D; /* 2Doe4 Red */
+  --bg-light: #FDFDFD;
+  --bg-section: #F8F9FA;
+  --bg-card: #FFFFFF;
+  --text-main: #1A1A1A;
+  --text-dim: #666666;
   --white: #FFFFFF;
   --gray-light: #F4F4F4;
-  --gray-mid: #888888;
+  --gray-mid: #E0E0E0;
   --gray-dark: #333333;
-  --glass: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --carbon: radial-gradient(circle, #1a1a1a 1px, transparent 1px);
+  --glass: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.04);
+  --carbon: radial-gradient(circle, #E0E0E0 1px, transparent 1px);
   --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -30,8 +34,8 @@
 
 body {
   font-family: 'Outfit', sans-serif;
-  background-color: var(--bg-dark);
-  color: var(--white);
+  background-color: var(--bg-light);
+  color: var(--text-main);
   overflow-x: hidden;
   line-height: 1.6;
 }
@@ -90,10 +94,10 @@ header {
 }
 
 header.scrolled {
-  background: rgba(11, 11, 11, 0.95);
-  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(20px);
   padding: 15px 0;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--gray-mid);
 }
 
 nav {
@@ -152,7 +156,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg-dark);
+  background: var(--bg-light);
   z-index: 2000;
   display: flex;
   align-items: center;
@@ -190,7 +194,7 @@ nav {
 }
 
 .menu-items a {
-  color: var(--white);
+  color: var(--text-main);
   text-decoration: none;
   font-size: clamp(2rem, 8vw, 4rem);
   font-weight: 900;
@@ -296,7 +300,7 @@ nav {
 
 /* Formula Section */
 .formula {
-  background: var(--bg-dark);
+  background: var(--bg-section);
 }
 
 .formula-grid {
@@ -309,7 +313,8 @@ nav {
 .formula-card {
   padding: 50px 40px;
   background: var(--bg-card);
-  border: 1px solid var(--glass-border);
+  border: 1px solid var(--gray-mid);
+  box-shadow: var(--shadow-premium);
   transition: var(--transition);
   position: relative;
   overflow: hidden;
@@ -438,7 +443,7 @@ nav {
 
 /* Gamification */
 .game-section {
-  background: var(--bg-dark);
+  background: var(--bg-section);
   padding-bottom: 0;
 }
 
@@ -454,7 +459,8 @@ nav {
   min-width: 300px;
   padding: 30px;
   background: var(--bg-card);
-  border-bottom: 5px solid var(--gray-dark);
+  border-bottom: 5px solid var(--gray-mid);
+  box-shadow: var(--shadow-premium);
   transition: var(--transition);
 }
 
@@ -471,8 +477,8 @@ nav {
 /* Footer */
 footer {
   padding: 100px 0 50px;
-  background: var(--bg-dark);
-  border-top: 1px solid var(--gray-dark);
+  background: var(--bg-light);
+  border-top: 1px solid var(--gray-mid);
 }
 
 .footer-grid {
@@ -497,7 +503,7 @@ footer {
 }
 
 .footer-links a {
-  color: var(--white);
+  color: var(--text-main);
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 700;
@@ -601,24 +607,25 @@ footer {
 
 /* Custom Cursor (Luxury feel) */
 .custom-cursor {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   background: var(--primary);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
   transition: transform 0.2s;
+  box-shadow: 0 0 10px rgba(239, 43, 45, 0.4);
 }
 
 .cursor-follower {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--primary);
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid var(--primary);
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9998;
   transition: 0.1s;
+  opacity: 0.5;
 }
